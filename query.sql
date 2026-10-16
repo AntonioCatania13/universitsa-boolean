@@ -30,3 +30,9 @@ FROM departments;
 SELECT phone 
 FROM teachers
 WHERE phone  <> 'null'
+
+-- asegnazione del 15/10/2026 --
+
+SELECT COUNT(id) AS tot_iscritti, YEAR(enrolment_date ) AS anno_iscrizione
+FROM students
+GROUP BY YEAR(enrolment_date );
