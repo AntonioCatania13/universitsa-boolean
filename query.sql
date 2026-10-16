@@ -26,3 +26,7 @@ WHERE `level`  = 'magistrale';
 
 SELECT COUNT(id )
 FROM departments;
+
+SELECT phone 
+FROM teachers
+WHERE phone  <> 'null'
