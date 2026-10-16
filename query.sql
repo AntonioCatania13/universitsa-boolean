@@ -23,3 +23,6 @@ AND `hour` >= '14:00';
 SELECT `level` 
 FROM degrees
 WHERE `level`  = 'magistrale';
+
+SELECT COUNT(id )
+FROM departments;
