@@ -36,3 +36,8 @@ WHERE phone  <> 'null'
 SELECT COUNT(id) AS tot_iscritti, YEAR(enrolment_date ) AS anno_iscrizione
 FROM students
 GROUP BY YEAR(enrolment_date );
+
+SELECT office_address, office_number, COUNT(*) AS insegnatti_con_stesso_uffici
+FROM teachers
+GROUP BY office_address, office_number
+HAVING COUNT(*) >1;
