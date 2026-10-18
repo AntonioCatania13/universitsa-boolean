@@ -82,3 +82,44 @@ ON students.id = degrees.department_id
 JOIN departments
 ON degrees.department_id = departments.id 
 ORDER BY students.name, students.surname;
+
+-- Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti --
+SELECT degrees.department_id, degrees.name AS 'course laurea', courses.name AS 'course', teachers.name AS 'name teacher', teachers.surname AS 'surname teacher'
+FROM degrees
+JOIN courses
+ON degrees.id = degree_id
+JOIN course_teacher
+ON courses.id = course_teacher.course_id
+JOIN teachers
+ON course_teacher.teacher_id = teachers.id
+ORDER BY department_id 
+
+-- Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
+SELECT departments.name AS 'dipartimento', teachers.name AS 'name teacher', teachers.surname AS ' surname teacher'
+FROM departments
+JOIN degrees
+ON departments.id = degrees.department_id 
+JOIN courses
+ON degrees.id = courses.degree_id 
+JOIN course_teacher
+ON courses.id = course_teacher.course_id 
+JOIN teachers
+ON course_teacher.teacher_id = teachers.id
+WHERE departments.id = 5
+-- WHERE departments.name = 'Dipartimento di Matematica'
+
+-- Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
+SELECT students.id, 
+students.name AS 'name student',
+students.surname AS 'surname student',
+exams.id AS 'exam',
+COUNT(*) AS 'tentativi',
+MAX(vote) AS 'voto piu alto'
+FROM students
+JOIN exam_student
+ON students.id = exam_student.student_id 
+JOIN exams
+ON exam_student.exam_id = exams.id
+-- WHERE exam_student.vote = 18
+GROUP BY students.id, exams.id
+ORDER BY COUNT(*) DESC;
