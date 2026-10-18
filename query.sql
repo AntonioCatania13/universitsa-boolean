@@ -49,3 +49,9 @@ GROUP BY exam_id;
 SELECT COUNT(id), department_id
 FROM degrees
 GROUP BY department_id
+
+SELECT students.name AS 'student name', students.surname AS 'student surname', degrees.name AS 'cours name'
+FROM degrees
+JOIN students
+ON degrees.id = students.degree_id 
+WHERE degrees.name = 'Corso di Laurea in Economia';
