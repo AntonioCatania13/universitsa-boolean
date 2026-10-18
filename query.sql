@@ -43,4 +43,9 @@ GROUP BY office_address, office_number
 HAVING COUNT(*) >1;
 
 SELECT AVG(vote)
-FROM exam_student;
+FROM exam_student
+GROUP BY exam_id;
+
+SELECT COUNT(id)
+FROM degrees
+GROUP BY department_id
