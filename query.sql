@@ -64,3 +64,13 @@ JOIN degrees
 ON departments.id = degrees.department_id
 WHERE level = 'magistrale'
 AND departments.name  = 'Dipartimento di Neuroscienze'
+
+SELECT *
+FROM teachers
+JOIN course_teacher
+ON teachers.id = course_teacher.teacher_id 
+JOIN courses
+ON course_teacher.course_id = courses.id 
+WHERE teachers.name = 'Fulvio'
+AND teachers.surname = 'Amato'
+-- where teachers.id = 44 --
