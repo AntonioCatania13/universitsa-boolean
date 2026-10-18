@@ -65,7 +65,7 @@ ON departments.id = degrees.department_id
 WHERE level = 'magistrale'
 AND departments.name  = 'Dipartimento di Neuroscienze'
 
-SELECT *
+SELECT teachers.id, teachers.name, teachers.surname, courses.name AS 'name course' 
 FROM teachers
 JOIN course_teacher
 ON teachers.id = course_teacher.teacher_id 
@@ -74,3 +74,11 @@ ON course_teacher.course_id = courses.id
 WHERE teachers.name = 'Fulvio'
 AND teachers.surname = 'Amato'
 -- where teachers.id = 44 --
+
+SELECT students.name, students.surname, degrees.name AS 'name course', departments.name AS 'name department'
+FROM students
+JOIN degrees
+ON students.id = degrees.department_id  
+JOIN departments
+ON degrees.department_id = departments.id 
+ORDER BY students.name, students.surname;
