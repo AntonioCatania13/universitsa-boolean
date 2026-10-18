@@ -41,3 +41,6 @@ SELECT office_address, office_number, COUNT(*) AS insegnatti_con_stesso_uffici
 FROM teachers
 GROUP BY office_address, office_number
 HAVING COUNT(*) >1;
+
+SELECT AVG(vote)
+FROM exam_student;
