@@ -42,10 +42,10 @@ FROM teachers
 GROUP BY office_address, office_number
 HAVING COUNT(*) >1;
 
-SELECT AVG(vote)
+SELECT AVG(vote), exam_id 
 FROM exam_student
 GROUP BY exam_id;
 
-SELECT COUNT(id)
+SELECT COUNT(id), department_id
 FROM degrees
 GROUP BY department_id
